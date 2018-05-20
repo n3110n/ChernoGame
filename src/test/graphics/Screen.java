@@ -33,7 +33,9 @@ public class Screen {
 				int tileIndex = ((xx >> 4) & MAP_SIZE_MASK) + ((yy >> 4) & MAP_SIZE_MASK) * MAP_SIZE; 
 				// >> right shift by number on the right, divided by 2 ^x  bitwise operation
 				
-				pixels[x + y * width] = tiles[tileIndex];	
+				//pixels[x + y * width] = tiles[tileIndex];	
+				pixels[x + y * width] = Sprite.grass.pixels[(x & 15) + (y & 15) * Sprite.grass.getSIZE()];
+				
 				
 			}
 		}
