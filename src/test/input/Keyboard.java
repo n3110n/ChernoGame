@@ -5,7 +5,7 @@ import java.awt.event.KeyListener;
 
 public class Keyboard implements KeyListener{
 
-	private boolean[] keys = new boolean[1024];
+	private boolean[] keys = new boolean[600];
 	public boolean up, down, left, right;
 	
 	public void update() {
@@ -14,7 +14,13 @@ public class Keyboard implements KeyListener{
 		left 	= keys[KeyEvent.VK_LEFT] 	|| keys[KeyEvent.VK_A];
 		right 	= keys[KeyEvent.VK_RIGHT] 	|| keys[KeyEvent.VK_D];
 	
-		System.out.println(up);
+		
+		//If you want to see key numbers in console
+		/*
+		for (int i = 0; i <keys.length; i++) {
+			if(keys[i]) System.out.println("KEY: " + keys[i]);
+		}
+		*/
 	
 	}
 	
