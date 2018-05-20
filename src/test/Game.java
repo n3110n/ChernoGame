@@ -11,6 +11,7 @@ import java.awt.image.DataBufferInt;
 import javax.swing.JFrame;
 
 import test.graphics.Screen;
+import test.input.Keyboard;
 
 public class Game extends Canvas implements Runnable{
 	/**
@@ -25,6 +26,7 @@ public class Game extends Canvas implements Runnable{
 	
 	private Thread thread;
 	private JFrame frame;
+	private Keyboard key;
 	private boolean running = false;
 	
 	private Screen screen;
@@ -36,10 +38,11 @@ public class Game extends Canvas implements Runnable{
 		Dimension size = new Dimension(width * scale, height * scale);
 		setPreferredSize(size);
 		
-		screen = new Screen(width, height);
+		screen = new Screen(width, height);		
+		frame = new JFrame();		
+		key = new Keyboard();
 		
-		frame = new JFrame();
-		
+		this.addKeyListener(key);
 	}
 	
 	public synchronized void start(){
@@ -90,6 +93,7 @@ public class Game extends Canvas implements Runnable{
 	int x = 0, y = 0;
 	
 	public void update(){
+		key.update();
 		x++;
 		y++;
 	}
