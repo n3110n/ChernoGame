@@ -25,18 +25,13 @@ public class Screen {
 	
 	public void render(int xOffset, int yOffset) {
 		for(int y = 0; y < height; y++){
-			int yy = y + yOffset;
-			//if(yy < 0 || yy >= height) break; //prevent out of bounds
-			for(int x = 0; x < width; x++){
-				int xx = x + xOffset;
-				//if(xx < 0 || xx >= width) break; // prevent out of bounds
-				int tileIndex = ((xx >> 4) & MAP_SIZE_MASK) + ((yy >> 4) & MAP_SIZE_MASK) * MAP_SIZE; 
-				// >> right shift by number on the right, divided by 2 ^x  bitwise operation
-				
-				//pixels[x + y * width] = tiles[tileIndex];	
+			int yp = y + yOffset;
+			if(yp < 0 || yp >= height) continue;
+			for(int x = 0; x < width; x++){	
+				int xp = x + xOffset;
+				if(xp < 0 || xp >= width) continue;		
 				pixels[x + y * width] = Sprite.grass.pixels[(x & 15) + (y & 15) * Sprite.grass.getSIZE()];
-				
-				
+	
 			}
 		}
 	}
