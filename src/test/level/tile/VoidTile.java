@@ -10,7 +10,7 @@ public class VoidTile extends Tile {
 	}
 	
 	public void render(int x, int y, Screen screen) {
-		screen.renderTile(x, y, this); 
+		screen.renderTile(x << 4, y << 4, this); 
 		//x, y will probably need to be manipulated, because we probably count in tiles before( given x and y)
 	}
 	

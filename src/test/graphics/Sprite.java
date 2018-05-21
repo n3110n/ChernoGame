@@ -10,7 +10,7 @@ public class Sprite {
 	
 	public static Sprite grass = new Sprite(16, 0, 0, SpriteSheet.tiles);
 	public static Sprite water = new Sprite(16, 1, 0, SpriteSheet.tiles);
-	public static Sprite voidSprite = new Sprite(16, 0x000000);
+	public static Sprite voidSprite = new Sprite(16, 0x1b87e0);
 	
 	public Sprite(int size, int x, int y, SpriteSheet sheet) {
 		SIZE = size;

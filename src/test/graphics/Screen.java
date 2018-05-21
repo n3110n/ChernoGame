@@ -27,6 +27,8 @@ public class Screen {
 		}
 	}
 	
+	//not needed anymore
+	/**
 	public void render(int xOffset, int yOffset) {
 		for(int y = 0; y < height; y++){
 			int yp = y + yOffset;
@@ -39,7 +41,7 @@ public class Screen {
 			}
 		}
 	}
-	
+	*/
 	
 	public void renderTile(int xp, int yp, Tile tile) {
 		xp -= xOffset;
@@ -50,6 +52,7 @@ public class Screen {
 				int xa = x + xp;
 				
 				if(xa < 0 || xa >= width || ya < 0 || ya >= height)  break;
+				
 				pixels[xa + ya * width] = tile.sprite.pixels[x + y * tile.sprite.getSIZE()];
 			}
 		}
