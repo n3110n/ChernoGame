@@ -6,7 +6,7 @@ import test.level.tile.Tile;
 
 public class Screen {
 
-	private int width, height;
+	public int width, height;
 	//int tileSize = 16; //tilesize (width and height) in pixels on Screen
 	public final int MAP_SIZE = 64;
 	public final int MAP_SIZE_MASK = MAP_SIZE - 1;
