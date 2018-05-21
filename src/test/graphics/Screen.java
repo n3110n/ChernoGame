@@ -2,6 +2,8 @@ package test.graphics;
 
 import java.util.Random;
 
+import test.level.tile.Tile;
+
 public class Screen {
 
 	private int width, height;
@@ -35,6 +37,18 @@ public class Screen {
 			}
 		}
 	}
+	
+	
+	public void renderTile(int xp, int yp, Tile tile) {
+		for(int y = 0; y < tile.sprite.getSIZE(); y++) {
+			int ya = y + yp;
+			for(int x = 0; x < tile.sprite.getSIZE(); x++) {
+				int xa = x + xp;
+				
+			}
+		}
+	}
+	
 	
 	public void clear() {
 		for(int i = 0; i < pixels.length; i++){
