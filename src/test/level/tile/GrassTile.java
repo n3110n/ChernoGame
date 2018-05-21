@@ -10,7 +10,8 @@ public class GrassTile extends Tile{
 	}
 	
 	public void render(int x, int y, Screen screen) {
-		// DO render stuff here!
+		screen.renderTile(x, y, this); 
+		//x, y will probably need to be manipulated, because we probably count in tiles before( given x and y)
 	}
 	
 }
