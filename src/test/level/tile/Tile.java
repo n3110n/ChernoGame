@@ -1,11 +1,14 @@
 package test.level.tile;
 
+import test.graphics.Screen;
 import test.graphics.Sprite;
 
 public class Tile {
 	
 	public int x, y;
 	public Sprite sprite;
+	
+	public static Tile grass = new GrassTile(Sprite.grass);
 	
 	public Tile(Sprite sprite) {
 		this.sprite = sprite;
