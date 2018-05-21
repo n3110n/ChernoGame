@@ -42,6 +42,6 @@ public class Level {
 	public Tile getTile(int x, int y) {		
 		if(tiles[x + y * width] == 0) return Tile.grass;
 		
-		return null; //dangerous:D
+		return Tile.voidTile; //dangerous:D
 	}
 }
