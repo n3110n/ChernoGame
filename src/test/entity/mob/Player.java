@@ -1,6 +1,7 @@
 package test.entity.mob;
 
 import test.graphics.Screen;
+import test.graphics.Sprite;
 import test.input.Keyboard;
 
 public class Player extends Mob {
@@ -39,11 +40,17 @@ public class Player extends Mob {
 	}
 	
 	public void render(Screen screen) {
-		int xcenter = x - (sprite.playerFront0.getSIZE() / 2);
-		int ycenter = y - (sprite.playerFront0.getSIZE() / 2);
+		int xcenter = x - (sprite.playerUp0.getSIZE() / 2);
+		int ycenter = y - (sprite.playerUp0.getSIZE() / 2);
 		
-		screen.renderPlayer(xcenter, ycenter,  sprite.playerFront0);
+		Sprite sprite = Sprite.playerDown0;
+		if(dir == 0) sprite = Sprite.playerUp0;
+		if(dir == 1) sprite = Sprite.playerRight0;
+		if(dir == 2) sprite = Sprite.playerDown0;
+		if(dir == 3) sprite = Sprite.playerLeft0;
 		
+		screen.renderPlayer(xcenter,  ycenter, sprite);
+			
 	}
 	
 }

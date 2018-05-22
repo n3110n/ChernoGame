@@ -12,7 +12,21 @@ public class Sprite {
 	public static Sprite water = new Sprite(16, 1, 0, SpriteSheet.tiles);
 	public static Sprite voidSprite = new Sprite(16, 0x1b87e0);
 	
-	public static Sprite playerFront0 = new Sprite(32, 5, 0, SpriteSheet.tiles);
+	public static Sprite playerDown0 = new Sprite(32, 5, 0, SpriteSheet.tiles);
+	public static Sprite playerDown1 = new Sprite(32, 6, 0, SpriteSheet.tiles);
+	public static Sprite playerDown2 = new Sprite(32, 7, 0, SpriteSheet.tiles);
+	
+	public static Sprite playerUp0 = new Sprite(32, 5, 1, SpriteSheet.tiles);
+	public static Sprite playerUp1 = new Sprite(32, 6, 1, SpriteSheet.tiles);
+	public static Sprite playerUp2 = new Sprite(32, 7, 1, SpriteSheet.tiles);
+	
+	public static Sprite playerLeft0 = new Sprite(32, 5, 2, SpriteSheet.tiles);
+	public static Sprite playerLeft1 = new Sprite(32, 6, 2, SpriteSheet.tiles);
+	public static Sprite playerLeft2 = new Sprite(32, 7, 2, SpriteSheet.tiles);
+	
+	public static Sprite playerRight0 = new Sprite(32, 5, 3, SpriteSheet.tiles);
+	public static Sprite playerRight1 = new Sprite(32, 6, 3, SpriteSheet.tiles);
+	public static Sprite playerRight2 = new Sprite(32, 7, 3, SpriteSheet.tiles);
 	
 	public static Sprite player0 = new Sprite(16, 10, 0, SpriteSheet.tiles);
 	public static Sprite player1 = new Sprite(16, 10, 1, SpriteSheet.tiles);
