@@ -2,6 +2,7 @@ package test.graphics;
 
 import java.util.Random;
 
+import test.entity.mob.Player;
 import test.level.tile.Tile;
 import test.level.tile.VoidTile;
 
@@ -57,6 +58,22 @@ public class Screen {
 				pixels[xa + ya * width] = tile.sprite.pixels[x + y * tile.sprite.getSIZE()];
 			}
 		}
+	}
+	
+	public void renderPlayer(int xp, int yp, Sprite sprite) {
+		xp -= xOffset;
+		yp -= yOffset;
+		for(int y = 0; y < sprite.getSIZE(); y++) {
+			int ya = y + yp;
+			for(int x = 0; x < sprite.getSIZE(); x++) {
+				int xa = x + xp;
+				
+				if(xa < 0 - sprite.getSIZE() || xa >= width || ya < 0 || ya >= height)  break;
+				if(xa < 0)  xa = 0;
+				pixels[xa + ya * width] = sprite.pixels[x + y * sprite.getSIZE()];
+			}
+		}
+		
 	}
 	
 	public void setOffset(int xOffset, int yOffset) {

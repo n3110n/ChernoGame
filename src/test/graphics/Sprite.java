@@ -12,7 +12,12 @@ public class Sprite {
 	public static Sprite water = new Sprite(16, 1, 0, SpriteSheet.tiles);
 	public static Sprite voidSprite = new Sprite(16, 0x1b87e0);
 	
-	public Sprite(int size, int x, int y, SpriteSheet sheet) {
+	public static Sprite player0 = new Sprite(16, 10, 0, SpriteSheet.tiles);
+	public static Sprite player1 = new Sprite(16, 10, 1, SpriteSheet.tiles);
+	public static Sprite player2 = new Sprite(16, 11, 0, SpriteSheet.tiles);
+	public static Sprite player3 = new Sprite(16, 11, 1, SpriteSheet.tiles);
+	
+	public Sprite(int size, int y, int x, SpriteSheet sheet) {
 		SIZE = size;
 		this.x = x * size;
 		this.y = y * size;

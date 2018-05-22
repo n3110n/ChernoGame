@@ -1,5 +1,6 @@
 package test.entity.mob;
 
+import test.graphics.Screen;
 import test.input.Keyboard;
 
 public class Player extends Mob {
@@ -37,8 +38,8 @@ public class Player extends Mob {
 		}
 	}
 	
-	public void render() {
-		
+	public void render(Screen screen) {
+		screen.renderPlayer(x, y,  sprite.player0);
 	}
 	
 }
