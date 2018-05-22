@@ -70,7 +70,9 @@ public class Screen {
 				
 				if(xa < 0 - sprite.getSIZE() || xa >= width || ya < 0 || ya >= height)  break;
 				if(xa < 0)  xa = 0;
-				pixels[xa + ya * width] = sprite.pixels[x + y * sprite.getSIZE()];
+				
+				int color = sprite.pixels[x + y * sprite.getSIZE()];
+				if(color != 0xffFF00FF) pixels[xa + ya * width] = color; //first ff for the alpha channel, as we get ARGB values from getData etc
 			}
 		}
 		
