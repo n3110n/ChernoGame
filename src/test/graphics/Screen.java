@@ -3,6 +3,7 @@ package test.graphics;
 import java.util.Random;
 
 import test.level.tile.Tile;
+import test.level.tile.VoidTile;
 
 public class Screen {
 
@@ -51,8 +52,8 @@ public class Screen {
 			for(int x = 0; x < tile.sprite.getSIZE(); x++) {
 				int xa = x + xp;
 				
-				if(xa < 0 || xa >= width || ya < 0 || ya >= height)  break;
-				
+				if(xa < 0 - tile.sprite.getSIZE() || xa >= width || ya < 0 || ya >= height)  break;
+				if(xa < 0)  xa = 0;
 				pixels[xa + ya * width] = tile.sprite.pixels[x + y * tile.sprite.getSIZE()];
 			}
 		}

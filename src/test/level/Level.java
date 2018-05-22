@@ -2,6 +2,7 @@ package test.level;
 
 import test.graphics.Screen;
 import test.level.tile.Tile;
+import test.level.tile.VoidTile;
 
 public class Level {
 	
@@ -37,9 +38,9 @@ public class Level {
 		screen.setOffset(xScroll, yScroll);
 		
 		int x0 = xScroll >> 4; // >> 4 = / 16
-		int x1 = (xScroll + screen.width) >> 4;
+		int x1 = (xScroll + screen.width + Tile.voidTile.sprite.getSIZE()) >> 4;
 		int y0 = yScroll >> 4; // >> 4 = / 16
-		int y1 = (yScroll + screen.height) >> 4;
+		int y1 = (yScroll + screen.height + Tile.voidTile.sprite.getSIZE()) >> 4;
 		
 		//System.out.println(x0 + " " + x1 + " " + y0 + " " + y1);
 		
