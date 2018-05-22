@@ -40,16 +40,20 @@ public class Player extends Mob {
 	}
 	
 	public void render(Screen screen) {
+		int flip = 0; //if flipped in no way stays 0;
 		int xcenter = x - (sprite.playerUp0.getSIZE() / 2);
 		int ycenter = y - (sprite.playerUp0.getSIZE() / 2);
 		
 		Sprite sprite = Sprite.playerDown0;
 		if(dir == 0) sprite = Sprite.playerUp0;
-		if(dir == 1) sprite = Sprite.playerRight0;
+		if(dir == 1) {
+			flip = 1;
+			sprite = Sprite.playerSide0;
+		}
 		if(dir == 2) sprite = Sprite.playerDown0;
-		if(dir == 3) sprite = Sprite.playerLeft0;
+		if(dir == 3) sprite = Sprite.playerSide0;
 		
-		screen.renderPlayer(xcenter,  ycenter, sprite);
+		screen.renderPlayer(xcenter,  ycenter, sprite, flip);
 			
 	}
 	

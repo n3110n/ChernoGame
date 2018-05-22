@@ -60,18 +60,29 @@ public class Screen {
 		}
 	}
 	
-	public void renderPlayer(int xp, int yp, Sprite sprite) {
+	public void renderPlayer(int xp, int yp, Sprite sprite, int flip) {
 		xp -= xOffset;
 		yp -= yOffset;
 		for(int y = 0; y < sprite.getSIZE(); y++) {
 			int ya = y + yp;
+			int ys = y;
+			
+			if(flip == 2 || flip == 3) {
+				ys = (Sprite.playerUp0.getSIZE() - 1) - y;
+			}
+			
 			for(int x = 0; x < sprite.getSIZE(); x++) {
 				int xa = x + xp;
+				int xs = x;
+				
+				if(flip == 1 || flip == 3) {
+					xs = (Sprite.playerUp0.getSIZE() - 1) - x;
+				}
 				
 				if(xa < 0 - sprite.getSIZE() || xa >= width || ya < 0 || ya >= height)  break;
 				if(xa < 0)  xa = 0;
 				
-				int color = sprite.pixels[x + y * sprite.getSIZE()];
+				int color = sprite.pixels[xs + ys * sprite.getSIZE()];
 				if(color != 0xffFF00FF) pixels[xa + ya * width] = color; //first ff for the alpha channel, as we get ARGB values from getData etc
 			}
 		}
