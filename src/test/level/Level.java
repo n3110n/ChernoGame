@@ -19,6 +19,7 @@ public class Level {
 
 	public Level(String path) {
 		loadLevel(path);
+		generateLevel();
 	}
 
 	protected void loadLevel(String path) {
@@ -38,9 +39,9 @@ public class Level {
 		screen.setOffset(xScroll, yScroll);
 
 		int x0 = xScroll >> 4; // >> 4 = / 16
-		int x1 = (xScroll + screen.width + Tile.voidTile.sprite.getSIZE()) >> 4;
+		int x1 = (xScroll + screen.width + 16) >> 4; // Tile.voidTile.sprite.getSIZE() = 16 replace later
 		int y0 = yScroll >> 4; // >> 4 = / 16
-		int y1 = (yScroll + screen.height + Tile.voidTile.sprite.getSIZE()) >> 4;
+		int y1 = (yScroll + screen.height + 16) >> 4;
 
 		// System.out.println(x0 + " " + x1 + " " + y0 + " " + y1);
 
@@ -48,10 +49,11 @@ public class Level {
 			for (int x = x0; x < x1; x++) { // from left to right on the Screen
 				// System.out.println(x + " " + y);
 				// getTile(x, y).render(x, y, screen); //old version for randomlevel generation
-				if (x < 0 || y < 0 || x >= width || y >= height)
+				if (x + y * 16 < 0 || x + y * 16 >= 16 * 16) {
 					Tile.voidTile.render(x, y, screen);
-				else
-					tiles[x + y * 16].render(x, y, screen);
+					continue;
+				}
+				tiles[x + y * 16].render(x, y, screen);
 			}
 		}
 	}
