@@ -39,9 +39,9 @@ public class Level {
 		screen.setOffset(xScroll, yScroll);
 
 		int x0 = xScroll >> 4; // >> 4 = / 16
-		int x1 = (xScroll + screen.width + 16) >> 4; // Tile.voidTile.sprite.getSIZE() = 16 replace later
+		int x1 = (xScroll + screen.width + Tile.voidTile.sprite.getSIZE()) >> 4;
 		int y0 = yScroll >> 4; // >> 4 = / 16
-		int y1 = (yScroll + screen.height + 16) >> 4;
+		int y1 = (yScroll + screen.height + Tile.voidTile.sprite.getSIZE()) >> 4;
 
 		// System.out.println(x0 + " " + x1 + " " + y0 + " " + y1);
 
@@ -58,9 +58,9 @@ public class Level {
 	// 0xffFFFF00 Flower
 	// 0xff7F7F00 Rock
 	public Tile getTile(int x, int y) {
-		if (x < 0 || y < 0 || x >= width || y >= height)
+		if (x + y * width < 0 || x + y * width >= tiles.length)
 			return Tile.voidTile;
-		if (tiles[x + y * width] == 0xff00FF00) {
+		if (tiles[x + y * width] == 0xff00FF00)
 			return Tile.grass;
 		if (tiles[x + y * width] == 0xffFFFF00)
 			return Tile.flower1;
