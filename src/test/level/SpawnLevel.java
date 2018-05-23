@@ -5,11 +5,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-import test.level.tile.Tile;
-
 public class SpawnLevel extends Level {
-
-	private int[] levelPixels;
 
 	public SpawnLevel(String path) {
 		super(path);
@@ -22,10 +18,9 @@ public class SpawnLevel extends Level {
 			int w = image.getWidth();
 			int h = image.getHeight();
 
-			tiles = new Tile[w * h];
-			levelPixels = new int[w * h];
+			tiles = new int[w * h];
 
-			image.getRGB(0, 0, w, h, levelPixels, 0, w);
+			image.getRGB(0, 0, w, h, tiles, 0, w);
 
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -37,16 +32,6 @@ public class SpawnLevel extends Level {
 	// 0xFFFF00 Flower
 	// 0x7F7F00 Rock
 	protected void generateLevel() {
-		for (int i = 0; i < levelPixels.length; i++) {
-			tiles[i] = Tile.voidTile;
-			if (levelPixels[i] == 0xff00FF00)
-				tiles[i] = Tile.grass;
-			if (levelPixels[i] == 0xffFFFF00)
-				tiles[i] = Tile.flower1;
-			if (levelPixels[i] == 0xff7F7F00)
-				tiles[i] = Tile.rock;
-
-		}
 
 	}
 

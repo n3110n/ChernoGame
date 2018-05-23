@@ -7,7 +7,7 @@ public class Level {
 
 	protected int width, height;
 	protected int[] tilesInt;
-	protected Tile[] tiles;
+	protected int[] tiles;
 
 	public Level(int width, int height) {
 		this.width = width;
@@ -48,24 +48,23 @@ public class Level {
 		for (int y = y0; y < y1; y++) { // from top to bottom border of the screen
 			for (int x = x0; x < x1; x++) { // from left to right on the Screen
 				// System.out.println(x + " " + y);
-				// getTile(x, y).render(x, y, screen); //old version for randomlevel generation
-				if (x + y * 16 < 0 || x + y * 16 >= 16 * 16) {
-					Tile.voidTile.render(x, y, screen);
-					continue;
-				}
-				tiles[x + y * 16].render(x, y, screen);
+				getTile(x, y).render(x, y, screen);
+
 			}
 		}
 	}
 
+	// 0xff00FF00 Grass
+	// 0xffFFFF00 Flower
+	// 0xff7F7F00 Rock
 	public Tile getTile(int x, int y) {
 		if (x < 0 || y < 0 || x >= width || y >= height)
 			return Tile.voidTile;
-		if (tilesInt[x + y * width] == 0)
+		if (tiles[x + y * width] == 0xff00FF00) {
 			return Tile.grass;
-		if (tilesInt[x + y * width] == 1)
+		if (tiles[x + y * width] == 0xffFFFF00)
 			return Tile.flower1;
-		if (tilesInt[x + y * width] == 2)
+		if (tiles[x + y * width] == 0xff7F7F00)
 			return Tile.rock;
 
 		return Tile.voidTile;
