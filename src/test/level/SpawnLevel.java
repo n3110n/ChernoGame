@@ -9,7 +9,6 @@ import test.level.tile.Tile;
 
 public class SpawnLevel extends Level {
 
-	private Tile[] tiles;
 	private int[] levelPixels;
 
 	public SpawnLevel(String path) {
@@ -22,7 +21,9 @@ public class SpawnLevel extends Level {
 			BufferedImage image = ImageIO.read(SpawnLevel.class.getResource(path));
 			int w = image.getWidth();
 			int h = image.getHeight();
+
 			tiles = new Tile[w * h];
+
 			image.getRGB(0, 0, w, h, levelPixels, 0, w);
 
 		} catch (IOException e) {
@@ -31,9 +32,9 @@ public class SpawnLevel extends Level {
 		}
 	}
 
-	// Grass 0x00FF00
-	// Flower 0xFFFF00
-	// Rock 0x7F7F00
+	// 0x00FF00 Grass
+	// 0xFFFF00 Flower
+	// 0x7F7F00 Rock
 	protected void generateLevel() {
 		for (int i = 0; i < levelPixels.length; i++) {
 			if (levelPixels[i] == 0x00FF00)
@@ -43,6 +44,7 @@ public class SpawnLevel extends Level {
 			if (levelPixels[i] == 0x7F7F00)
 				tiles[i] = Tile.rock;
 		}
+
 	}
 
 }
