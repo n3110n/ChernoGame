@@ -9,9 +9,13 @@ public class Sprite {
 	private SpriteSheet sheet;
 	
 	public static Sprite grass = new Sprite(16, 0, 0, SpriteSheet.tiles);
-	public static Sprite water = new Sprite(16, 1, 0, SpriteSheet.tiles);
+	public static Sprite flower1 = new Sprite(16, 0, 1, SpriteSheet.tiles);
+	public static Sprite flower2 = new Sprite(16, 0, 2, SpriteSheet.tiles);
+	public static Sprite rock = new Sprite(16, 0, 3, SpriteSheet.tiles);
 	public static Sprite voidSprite = new Sprite(16, 0x1b87e0);
 	
+	
+	//Playersprites
 	public static Sprite playerDown0 = new Sprite(32, 5, 0, SpriteSheet.tiles);
 	public static Sprite playerDown1 = new Sprite(32, 6, 0, SpriteSheet.tiles);
 	public static Sprite playerDown2 = new Sprite(32, 7, 0, SpriteSheet.tiles);
