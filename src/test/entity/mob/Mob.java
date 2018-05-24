@@ -43,7 +43,19 @@ public abstract class Mob extends Entity {
 	private boolean collision(int xa, int ya) {
 		boolean solid = false;
 		
-		if(level.getTile((x + xa) / Game.TILE_SIZE, (y + ya) / Game.TILE_SIZE).getSolid()) solid = true;
+		for(int c = 0; c < 4; c++) {
+			
+			int xcollision_size = 13;
+			int xcollision_offset = 7;
+			
+			int ycollision_size = 12;
+			int ycollision_offset = -3;
+			
+			int xt = ((x + xa) + c % 2 * xcollision_size - xcollision_offset) / Game.TILE_SIZE;
+			int yt = ((y + ya) + c / 2 * ycollision_size - ycollision_offset) / Game.TILE_SIZE;
+			if(level.getTile(xt, yt).getSolid()) solid = true;
+		}
+		
 
 		return solid;
 	}
