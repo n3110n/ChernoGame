@@ -47,6 +47,41 @@ public class Tile {
 	public static Tile rockmy = new Tile(Sprite.rockmy);
 	public static Tile rockcherno = new Tile(Sprite.rockcherno);
 
+	// colorcodes for above Tiles
+	public static final int col_grass0 = 0xff00ff00;
+	public static final int col_grass1 = 0xff000000; // unused
+	public static final int col_grass2 = 0xff000000; // unused
+	public static final int col_grass3 = 0xff000000; // unused
+	public static final int col_grass4 = 0xff000000; // unused
+	public static final int col_grass5 = 0xff000000; // unused
+	public static final int col_fire0 = 0xff000000; // unused
+	public static final int col_fire1 = 0xff000000; // unused
+	public static final int col_firered = 0xff000000; // unused
+	public static final int col_rockybright = 0xff000000; // unused
+	public static final int col_rockygrass = 0xff000000; // unused
+	public static final int col_rockydark = 0xff000000; // unused
+	public static final int col_waterdark = 0xff000000; // unused
+	public static final int col_waterbright = 0xff000000; // unused
+	public static final int col_watermedium = 0xff000000; // unused
+	public static final int col_wallrock = 0xff808080;
+	public static final int col_wallbrick0 = 0xff000000; // unused
+	public static final int col_wallbrick1 = 0xff000000; // unused
+	public static final int col_wallbrickred = 0xff000000; // unused
+	public static final int col_wallbrickorange = 0xff000000; // unused
+	public static final int col_wallbrickblue = 0xff000000; // unused
+	public static final int col_wallbrickmixed = 0xFF46413D;
+	public static final int col_wallbrickwhite = 0xff000000; // unused
+	public static final int col_wallwood = 0xff000000; // unused
+	public static final int col_floormarmor = 0xff000000; // unused
+	public static final int col_floorwood = 0xffFF6A00;
+	public static final int col_grassmy = 0xff000000; // unused
+	public static final int col_grasscherno = 0xff000000; // unused
+	public static final int col_flower0 = 0xff000000; // unused
+	public static final int col_flower1 = 0xff000000; // unused
+	public static final int col_flowermario = 0xff000000; // unused
+	public static final int col_rockmy = 0xff000000; // unused
+	public static final int col_rockcherno = 0xff000000; // unused
+
 	public Tile(Sprite sprite) {
 		this.sprite = sprite;
 
