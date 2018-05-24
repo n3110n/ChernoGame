@@ -140,8 +140,8 @@ public class Game extends Canvas implements Runnable {
 		g.drawImage(image, 0, 0, getWidth(), getHeight(), null); // draws every single pixel
 		g.setColor(Color.RED);
 		g.setFont(new Font("Verdana", 0, 32));
-		g.drawString("Button: " + Mouse.getButton(), 80, 80);
-		g.fillRect(Mouse.getX() - 32, Mouse.getY() - 32, 64, 64);
+		//g.drawString("Button: " + Mouse.getButton(), 80, 80);
+		//g.fillRect(Mouse.getX() - 32, Mouse.getY() - 32, 64, 64);
 		g.dispose();
 		bs.show();
 

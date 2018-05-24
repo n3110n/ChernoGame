@@ -1,8 +1,10 @@
 package test.entity.mob;
 
+import test.Game;
 import test.graphics.Screen;
 import test.graphics.Sprite;
 import test.input.Keyboard;
+import test.input.Mouse;
 
 public class Player extends Mob {
 
@@ -37,6 +39,8 @@ public class Player extends Mob {
 			xa--;
 		if (input.right)
 			xa++;
+		
+		updateShooting();
 
 		if (xa != 0 || ya != 0) {
 			move(xa, ya);
@@ -44,6 +48,20 @@ public class Player extends Mob {
 		} else {
 			walking = false;
 		}
+	}
+
+	private void updateShooting() {
+		double dir = 0;
+		
+		if(Mouse.getButton() == 1) {
+			double dx = (Mouse.getX() - Game.width * Game.scale / 2);
+			double dy = (Mouse.getY() - Game.height * Game.scale / 2);
+			
+			dir = Math.atan2(dy, dx);
+			
+			shoot(x, y, dir);
+		}
+		
 	}
 
 	public void render(Screen screen) {
