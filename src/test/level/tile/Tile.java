@@ -28,15 +28,15 @@ public class Tile {
 	public static Tile waterdark = new Tile(Sprite.waterdark);
 	public static Tile waterbright = new Tile(Sprite.waterbright);
 	public static Tile watermedium = new Tile(Sprite.watermedium);
-	public static Tile wallrock = new Tile(Sprite.wallrock);
-	public static Tile wallbrick0 = new Tile(Sprite.wallbrick0);
-	public static Tile wallbrick1 = new Tile(Sprite.wallbrick1);
-	public static Tile wallbrickred = new Tile(Sprite.wallbrickred);
-	public static Tile wallbrickorange = new Tile(Sprite.wallbrickorange);
-	public static Tile wallbrickblue = new Tile(Sprite.wallbrickblue);
-	public static Tile wallbrickmixed = new Tile(Sprite.wallbrickmixed);
-	public static Tile wallbrickwhite = new Tile(Sprite.wallbrickwhite);
-	public static Tile wallwood = new Tile(Sprite.wallwood);
+	public static Tile wallrock = new Tile(Sprite.wallrock, true);
+	public static Tile wallbrick0 = new Tile(Sprite.wallbrick0, true);
+	public static Tile wallbrick1 = new Tile(Sprite.wallbrick1, true);
+	public static Tile wallbrickred = new Tile(Sprite.wallbrickred, true);
+	public static Tile wallbrickorange = new Tile(Sprite.wallbrickorange, true);
+	public static Tile wallbrickblue = new Tile(Sprite.wallbrickblue, true);
+	public static Tile wallbrickmixed = new Tile(Sprite.wallbrickmixed, true);
+	public static Tile wallbrickwhite = new Tile(Sprite.wallbrickwhite, true);
+	public static Tile wallwood = new Tile(Sprite.wallwood, true);
 	public static Tile floormarmor = new Tile(Sprite.floormarmor);
 	public static Tile floorwood = new Tile(Sprite.floorwood);
 	public static Tile grassmy = new Tile(Sprite.grassmy);
@@ -44,8 +44,8 @@ public class Tile {
 	public static Tile flower0 = new Tile(Sprite.flower0);
 	public static Tile flower1 = new Tile(Sprite.flower1);
 	public static Tile flowermario = new Tile(Sprite.flowermario);
-	public static Tile rockmy = new Tile(Sprite.rockmy);
-	public static Tile rockcherno = new Tile(Sprite.rockcherno);
+	public static Tile rockmy = new Tile(Sprite.rockmy, true);
+	public static Tile rockcherno = new Tile(Sprite.rockcherno, true);
 
 	// colorcodes for above Tiles
 	public static final int col_grass0 = 0xff00ff00;
@@ -90,6 +90,7 @@ public class Tile {
 	public Tile(Sprite sprite, boolean solid) {
 		this.sprite = sprite;
 		this.solid = solid;
+		
 
 	}
 
@@ -102,7 +103,11 @@ public class Tile {
 	}
 
 	public boolean getSolid() {
-		return false;
+		return solid;
+	}
+	
+	public int getSize() {
+		return sprite.getSIZE();
 	}
 
 }
