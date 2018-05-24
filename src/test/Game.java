@@ -15,7 +15,6 @@ import test.entity.mob.Player;
 import test.graphics.Screen;
 import test.input.Keyboard;
 import test.level.Level;
-import test.level.SpawnLevel;
 
 public class Game extends Canvas implements Runnable {
 	/**
@@ -49,7 +48,7 @@ public class Game extends Canvas implements Runnable {
 		frame = new JFrame();
 		key = new Keyboard();
 
-		level = new SpawnLevel("/textures/level/level.png");
+		level = Level.spawn;
 		player = new Player(8 * 16, 8 * 16, key);
 
 		this.addKeyListener(key);

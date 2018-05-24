@@ -8,7 +8,7 @@ public class Level {
 	protected int width, height;
 	protected int[] tilesInt;
 	protected int[] tiles;
-	public static Level spawn = new Level("/level/spawn.png");
+	public static Level spawn = new SpawnLevel("/level/spawn.png");
 
 	public Level(int width, int height) {
 		this.width = width;
@@ -61,13 +61,41 @@ public class Level {
 	public Tile getTile(int x, int y) {
 		if (x + y * width < 0 || x + y * width >= tiles.length)
 			return Tile.voidTile;
-		if (tiles[x + y * width] == 0xff00FF00)
-			return Tile.grass0;
-		if (tiles[x + y * width] == 0xffFFFF00)
-			return Tile.flowermario;
-		if (tiles[x + y * width] == 0xff7F7F00)
-			return Tile.rockmy;
 
+		if(tiles[x + y * width] == Tile.col_grass0) return Tile.grass0;
+		if(tiles[x + y * width] == Tile.col_grass1) return Tile.grass1;
+		if(tiles[x + y * width] == Tile.col_grass2) return Tile.grass2;
+		if(tiles[x + y * width] == Tile.col_grass3) return Tile.grass3;
+		if(tiles[x + y * width] == Tile.col_grass4) return Tile.grass4;
+		if(tiles[x + y * width] == Tile.col_grass5) return Tile.grass5;
+		if(tiles[x + y * width] == Tile.col_fire0) return Tile.fire0;
+		if(tiles[x + y * width] == Tile.col_fire1) return Tile.fire1;
+		if(tiles[x + y * width] == Tile.col_firered) return Tile.firered;
+		if(tiles[x + y * width] == Tile.col_rockybright) return Tile.rockybright;
+		if(tiles[x + y * width] == Tile.col_rockygrass) return Tile.rockygrass;
+		if(tiles[x + y * width] == Tile.col_rockydark) return Tile.rockydark;
+		if(tiles[x + y * width] == Tile.col_waterdark) return Tile.waterdark;
+		if(tiles[x + y * width] == Tile.col_waterbright) return Tile.waterbright;
+		if(tiles[x + y * width] == Tile.col_watermedium) return Tile.watermedium;
+		if(tiles[x + y * width] == Tile.col_wallrock) return Tile.wallrock;
+		if(tiles[x + y * width] == Tile.col_wallbrick0) return Tile.wallbrick0;
+		if(tiles[x + y * width] == Tile.col_wallbrick1) return Tile.wallbrick1;
+		if(tiles[x + y * width] == Tile.col_wallbrickred) return Tile.wallbrickred;
+		if(tiles[x + y * width] == Tile.col_wallbrickorange) return Tile.wallbrickorange;
+		if(tiles[x + y * width] == Tile.col_wallbrickblue) return Tile.wallbrickblue;
+		if(tiles[x + y * width] == Tile.col_wallbrickmixed) return Tile.wallbrickmixed;
+		if(tiles[x + y * width] == Tile.col_wallbrickwhite) return Tile.wallbrickwhite;
+		if(tiles[x + y * width] == Tile.col_wallwood) return Tile.wallwood;
+		if(tiles[x + y * width] == Tile.col_floormarmor) return Tile.floormarmor;
+		if(tiles[x + y * width] == Tile.col_floorwood) return Tile.floorwood;
+		if(tiles[x + y * width] == Tile.col_grassmy) return Tile.grassmy;
+		if(tiles[x + y * width] == Tile.col_grasscherno) return Tile.grasscherno;
+		if(tiles[x + y * width] == Tile.col_flower0) return Tile.flower0;
+		if(tiles[x + y * width] == Tile.col_flower1) return Tile.flower1;
+		if(tiles[x + y * width] == Tile.col_flowermario) return Tile.flowermario;
+		if(tiles[x + y * width] == Tile.col_rockmy) return Tile.rockmy;
+		if(tiles[x + y * width] == Tile.col_rockcherno) return Tile.rockcherno;
+                                        	
 		return Tile.voidTile;
 	}
 }
