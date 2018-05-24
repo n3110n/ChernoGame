@@ -8,9 +8,6 @@ public class Sprite {
 	public int[] pixels;
 	private SpriteSheet sheet;
 
-	public static Sprite grass = new Sprite(16, 0, 0, SpriteSheet.tiles);
-	public static Sprite flower1 = new Sprite(16, 1, 0, SpriteSheet.tiles);
-	public static Sprite flower2 = new Sprite(16, 2, 0, SpriteSheet.tiles);
 	public static Sprite rock = new Sprite(16, 3, 0, SpriteSheet.tiles);
 
 	// voidsprite
@@ -32,6 +29,24 @@ public class Sprite {
 	public static Sprite waterdark = new Sprite(16, 2, 0, SpriteSheet.tile_level);
 	public static Sprite waterbright = new Sprite(16, 2, 1, SpriteSheet.tile_level);
 	public static Sprite watermedium = new Sprite(16, 2, 2, SpriteSheet.tile_level);
+	public static Sprite wallrock = new Sprite(16, 2, 3, SpriteSheet.tile_level);
+	public static Sprite wallbrick0 = new Sprite(16, 3, 4, SpriteSheet.tile_level);
+	public static Sprite wallbrick1 = new Sprite(16, 3, 3, SpriteSheet.tile_level);
+	public static Sprite wallbrickred = new Sprite(16, 4, 0, SpriteSheet.tile_level);
+	public static Sprite wallbrickorange = new Sprite(16, 4, 1, SpriteSheet.tile_level);
+	public static Sprite wallbrickblue = new Sprite(16, 4, 2, SpriteSheet.tile_level);
+	public static Sprite wallbrickmixed = new Sprite(16, 4, 3, SpriteSheet.tile_level);
+	public static Sprite wallbrickwhite = new Sprite(16, 4, 4, SpriteSheet.tile_level);
+	public static Sprite wallwood = new Sprite(16, 3, 2, SpriteSheet.tile_level);
+	public static Sprite floormarmor = new Sprite(16, 3, 0, SpriteSheet.tile_level);
+	public static Sprite floorwood = new Sprite(16, 5, 5, SpriteSheet.tile_level);
+	public static Sprite grassmy = new Sprite(16, 5, 0, SpriteSheet.tile_level);
+	public static Sprite grasscherno = new Sprite(16, 5, 1, SpriteSheet.tile_level);
+	public static Sprite flower0 = new Sprite(16, 5, 2, SpriteSheet.tile_level);
+	public static Sprite flower1 = new Sprite(16, 5, 3, SpriteSheet.tile_level);
+	public static Sprite flowermario = new Sprite(16, 5, 4, SpriteSheet.tile_level);
+	public static Sprite rockmy = new Sprite(16, 0, 5, SpriteSheet.tile_level);
+	public static Sprite rockcherno = new Sprite(16, 1, 5, SpriteSheet.tile_level);
 
 	// Playersprites
 	public static Sprite playerDown0 = new Sprite(32, 0, 5, SpriteSheet.tiles);
