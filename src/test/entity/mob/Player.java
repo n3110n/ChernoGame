@@ -58,7 +58,7 @@ public class Player extends Mob {
 			double dy = (Mouse.getY() - Game.height * Game.scale / 2);
 			
 			dir = Math.atan2(dy, dx);
-			
+			System.out.println(dir);
 			shoot(x, y, dir);
 		}
 		

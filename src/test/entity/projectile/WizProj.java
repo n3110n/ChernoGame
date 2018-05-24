@@ -10,7 +10,7 @@ public class WizProj extends Projectile{
 		range = 200;
 		damage = 20;
 		rateOfFire = 15;
-		speed = 1;
+		speed = 4;
 		sprite = Sprite.grass0;
 		
 		//System.out.println("X: " + Math.cos(angle) + " Y: " + Math.sin(angle));
