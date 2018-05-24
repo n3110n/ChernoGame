@@ -1,5 +1,9 @@
 package test.level;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import test.entity.Entity;
 import test.graphics.Screen;
 import test.level.tile.Tile;
 
@@ -8,6 +12,9 @@ public class Level {
 	protected int width, height;
 	protected int[] tilesInt;
 	protected int[] tiles;
+	
+	private List<Entity> entities = new ArrayList<Entity>();
+	
 	public static Level spawn = new SpawnLevel("/level/spawn.png");
 
 	public Level(int width, int height) {
@@ -32,6 +39,7 @@ public class Level {
 	}
 
 	public void update() {
+		for(int i = 0; i < entities.size(); i++) entities.get(i).update();
 
 	}
 
@@ -53,6 +61,13 @@ public class Level {
 
 			}
 		}
+		
+		for(int i = 0; i < entities.size(); i++) entities.get(i).render(screen);
+		
+	}
+	
+	public void add(Entity e) {
+		entities.add(e);		
 	}
 
 	// 0xff00FF00 Grass

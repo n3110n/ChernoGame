@@ -1,7 +1,12 @@
 package test.entity.mob;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import test.Game;
 import test.entity.Entity;
+import test.entity.projectile.Projectile;
+import test.entity.projectile.WizProj;
 import test.graphics.Sprite;
 
 public abstract class Mob extends Entity {
@@ -9,6 +14,8 @@ public abstract class Mob extends Entity {
 	protected Sprite sprite;
 	protected int dir = 2; // direction
 	protected boolean moving = false;
+	
+	protected List<Projectile> projectiles = new ArrayList<Projectile>();
 
 	public void move(int xa, int ya) {
 		// 0 north, 1 east, 2 south, 3 west
@@ -37,7 +44,10 @@ public abstract class Mob extends Entity {
 	}
 	
 	protected void shoot(int x, int y, double dir) {
-		//System.out.println(Math.atan(dir));
+		// dir *= 180 / Math.PI; // converting to degree
+		Projectile p = new WizProj(x, y, dir);
+		projectiles.add(p);
+		level.add(p);
 	}
 
 	public void update() {

@@ -54,6 +54,28 @@ public class Screen {
 			}
 		}
 	}
+	
+	public void renderSprite(int xp, int yp, Sprite sprite) {
+		xp -= xOffset;
+		yp -= yOffset;
+		for (int y = 0; y < sprite.getSIZE(); y++) {
+			int ya = y + yp;
+			for (int x = 0; x < sprite.getSIZE(); x++) {
+				int xa = x + xp;
+
+				if (xa < 0 - sprite.getSIZE() || xa >= width || ya < 0 || ya >= height)
+					break;
+				if (xa < 0)
+					xa = 0;
+				
+				//pixels[xa + ya * width] = sprite.pixels[x + y * sprite.getSIZE()];
+				//the following lines draw everything BUT the color pink with fullalpha channel!
+				int color = sprite.pixels[x + y * sprite.getSIZE()];
+				if (color != 0xffFF00FF)
+					pixels[xa + ya * width] = color;
+			}
+		}
+	}
 
 	public void renderPlayer(int xp, int yp, Sprite sprite, int flip) {
 		xp -= xOffset;
