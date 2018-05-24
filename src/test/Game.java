@@ -15,6 +15,7 @@ import test.entity.mob.Player;
 import test.graphics.Screen;
 import test.input.Keyboard;
 import test.level.Level;
+import test.level.TileCoordinate;
 
 public class Game extends Canvas implements Runnable {
 	/**
@@ -49,7 +50,8 @@ public class Game extends Canvas implements Runnable {
 		key = new Keyboard();
 
 		level = Level.spawn;
-		player = new Player(8 * 16, 8 * 16, key);
+		TileCoordinate player_spawn = new TileCoordinate(20, 53);
+		player = new Player(player_spawn.x(), player_spawn.y(), key);
 
 		this.addKeyListener(key);
 	}
