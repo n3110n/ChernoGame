@@ -25,6 +25,8 @@ public class Game extends Canvas implements Runnable {
 	public static int width = 300;
 	public static int height = width / 16 * 9;
 	public static int scale = 4;
+	
+	public static final int TILE_SIZE = 16;
 
 	public static String title = "Bullethell";
 
