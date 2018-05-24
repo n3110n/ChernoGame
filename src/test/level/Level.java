@@ -39,8 +39,9 @@ public class Level {
 	}
 
 	public void update() {
-		for(int i = 0; i < entities.size(); i++) entities.get(i).update();
-
+		for(int i = 0; i < entities.size(); i++) {
+			entities.get(i).update();
+		}
 	}
 
 	public void render(int xScroll, int yScroll, Screen screen) {
@@ -61,13 +62,10 @@ public class Level {
 
 			}
 		}
+		for(int i = 0; i < entities.size(); i++) {
+			entities.get(i).render(screen);
+		}
 		
-		for(int i = 0; i < entities.size(); i++) entities.get(i).render(screen);
-		
-	}
-	
-	public void add(Entity e) {
-		entities.add(e);		
 	}
 
 	// 0xff00FF00 Grass
@@ -112,5 +110,11 @@ public class Level {
 		if(tiles[x + y * width] == Tile.col_rockcherno) return Tile.rockcherno;
                                         	
 		return Tile.voidTile;
+	}
+
+	public void add(Entity e) {
+		// TODO Auto-generated method stub
+		entities.add(e);
+		
 	}
 }

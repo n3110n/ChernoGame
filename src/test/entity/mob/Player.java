@@ -11,7 +11,7 @@ public class Player extends Mob {
 	private Keyboard input;
 	private int animate = 0;
 	private boolean walking = false;
- 
+
 	public Player(Keyboard input) {
 		this.input = input;
 	}
@@ -51,10 +51,13 @@ public class Player extends Mob {
 	}
 
 	private void updateShooting() {
+		double dir = 0;
+		
 		if(Mouse.getButton() == 1) {
 			double dx = (Mouse.getX() - Game.width * Game.scale / 2);
-			double dy = (Mouse.getY() - Game.height * Game.scale / 2);			
-			double dir = Math.atan2(dy, dx);
+			double dy = (Mouse.getY() - Game.height * Game.scale / 2);
+			
+			dir = Math.atan2(dy, dx);
 			
 			shoot(x, y, dir);
 		}

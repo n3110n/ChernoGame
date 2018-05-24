@@ -11,7 +11,10 @@ public class WizProj extends Projectile{
 		damage = 20;
 		rateOfFire = 15;
 		speed = 1;
-		sprite = Sprite.WizProjTriForce;
+		sprite = Sprite.grass0;
+		
+		//System.out.println("X: " + Math.cos(angle) + " Y: " + Math.sin(angle));
+		//System.out.println(angle * 180 / Math.PI);
 		
 		nx = speed * Math.cos(angle);
 		ny = speed * Math.sin(angle);

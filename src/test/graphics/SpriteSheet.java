@@ -14,6 +14,7 @@ public class SpriteSheet {
 
 	public static SpriteSheet tiles = new SpriteSheet("/textures/spritesheet.png", 256);
 	public static SpriteSheet tile_level = new SpriteSheet("/textures/spritesheet_tiles.png", 96);
+
 	public static SpriteSheet proj = new SpriteSheet("/textures/projTest.png", 7);
 
 	public SpriteSheet(String path, int size) {

@@ -10,13 +10,13 @@ public class Sprite {
 
 	public static Sprite rock = new Sprite(16, 3, 0, SpriteSheet.tiles);
 
+	//proj
+	public static Sprite proj = new Sprite(7, 0, 0, SpriteSheet.proj);
+	
 	// voidsprite
 	public static Sprite voidSprite = new Sprite(16, 0x1b87e0);
-	
-	//proj
-	public static Sprite WizProjTriForce = new Sprite(7, 0, 0, SpriteSheet.proj);
 
-	// sprites Tiles
+	// sprites
 	public static Sprite grass0 = new Sprite(16, 0, 0, SpriteSheet.tile_level);
 	public static Sprite grass1 = new Sprite(16, 0, 1, SpriteSheet.tile_level);
 	public static Sprite grass2 = new Sprite(16, 0, 2, SpriteSheet.tile_level);

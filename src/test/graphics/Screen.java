@@ -67,12 +67,9 @@ public class Screen {
 					break;
 				if (xa < 0)
 					xa = 0;
-				
-				//pixels[xa + ya * width] = sprite.pixels[x + y * sprite.getSIZE()];
-				//the following lines draw everything BUT the color pink with fullalpha channel!
-				int color = sprite.pixels[x + y * sprite.getSIZE()];
-				if (color != 0xffFF00FF)
-					pixels[xa + ya * width] = color;
+				int col = sprite.pixels[x + y * sprite.getSIZE()];
+				if(col != 0xffff00ff)
+				pixels[xa + ya * width] = col;
 			}
 		}
 	}
