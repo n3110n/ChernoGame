@@ -44,10 +44,14 @@ public abstract class Mob extends Entity {
 	}
 	
 	protected void shoot(int x, int y, double dir) {
+<<<<<<< HEAD
 		//System.out.println(Math.atan(dir));
 		Projectile p = new WizProj(x, y, dir);
 		entities.add(p);
 		level.add(p);
+=======
+		System.out.println(Math.atan(dir));
+>>>>>>> parent of 439f29b... EP 68 some fixes
 	}
 
 	public void update() {
