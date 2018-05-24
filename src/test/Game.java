@@ -14,6 +14,7 @@ import javax.swing.JFrame;
 import test.entity.mob.Player;
 import test.graphics.Screen;
 import test.input.Keyboard;
+import test.input.Mouse;
 import test.level.Level;
 import test.level.TileCoordinate;
 
@@ -33,6 +34,7 @@ public class Game extends Canvas implements Runnable {
 	private Thread thread;
 	private JFrame frame;
 	private Keyboard key;
+	private Mouse mouse;
 	private Level level;
 	private Player player;
 
@@ -57,6 +59,11 @@ public class Game extends Canvas implements Runnable {
 		player.init(level);
 
 		this.addKeyListener(key);
+		
+		mouse = new Mouse();
+		
+		this.addMouseListener(mouse);
+		this.addMouseMotionListener(mouse);
 	}
 
 	public synchronized void start() {
@@ -131,9 +138,10 @@ public class Game extends Canvas implements Runnable {
 
 		Graphics g = bs.getDrawGraphics();
 		g.drawImage(image, 0, 0, getWidth(), getHeight(), null); // draws every single pixel
-		g.setColor(Color.WHITE);
+		g.setColor(Color.RED);
 		g.setFont(new Font("Verdana", 0, 32));
-		// g.drawString("X: "+ player.x + " Y: " + player.y, 400, 400);
+		g.drawString("Button: " + Mouse.getButton(), 80, 80);
+		g.fillRect(Mouse.getX() - 32, Mouse.getY() - 32, 64, 64);
 		g.dispose();
 		bs.show();
 

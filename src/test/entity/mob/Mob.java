@@ -45,8 +45,8 @@ public abstract class Mob extends Entity {
 		
 		for(int c = 0; c < 4; c++) {
 			
-			int xcollision_size = 13;
-			int xcollision_offset = 7;
+			int xcollision_size = 12;
+			int xcollision_offset = 6;
 			
 			int ycollision_size = 12;
 			int ycollision_offset = -3;
