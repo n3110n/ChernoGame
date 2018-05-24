@@ -6,29 +6,31 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 public class SpriteSheet {
-	
+
 	private String path;
 	public final int SIZE;
-	
+
 	public int[] pixels;
-	
+
 	public static SpriteSheet tiles = new SpriteSheet("/textures/spritesheet.png", 256);
-	
+	public static SpriteSheet tile_level = new SpriteSheet("/textures/spritesheet_tiles.png", 96);
+
 	public SpriteSheet(String path, int size) {
 		this.path = path;
 		this.SIZE = size;
-		
+
 		pixels = new int[size * size];
 		load();
 	}
-	
+
 	private void load() {
 		try {
 			BufferedImage image = ImageIO.read(SpriteSheet.class.getResource(path));
 			int w = image.getWidth();
 			int h = image.getHeight();
-			
-			image.getRGB(0,  0, w, h, pixels, 0, w); //start location, end location, storage array, offset, horizontal size
+
+			image.getRGB(0, 0, w, h, pixels, 0, w); // start location, end location, storage array, offset, horizontal
+													// size
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
