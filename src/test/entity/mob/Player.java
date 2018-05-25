@@ -1,6 +1,7 @@
 package test.entity.mob;
 
 import test.Game;
+import test.entity.projectile.Projectile;
 import test.graphics.Screen;
 import test.graphics.Sprite;
 import test.input.Keyboard;
@@ -23,7 +24,7 @@ public class Player extends Mob {
 	}
 
 	public void update() {
-
+		
 		int xa = 0;
 		int ya = 0;
 		if (animate < 8000)
@@ -40,6 +41,7 @@ public class Player extends Mob {
 		if (input.right)
 			xa++;
 		
+		clear();
 		updateShooting();
 
 		if (xa != 0 || ya != 0) {
@@ -50,15 +52,28 @@ public class Player extends Mob {
 		}
 	}
 
-	private void updateShooting() {
-		double dir = 0;
+	private void clear() {
+		for(int i = 0; i < projectiles.size(); i++) {
+			Projectile p = projectiles.get(i);
+			if(p.isRemoved()) {
+				projectiles.remove(i);
+			}
+		}
+	}
+
+	private void updateShooting() {	
+		/*
+		//add if needed
+		//to get the curser to the middle of the proj
+		int xOffset = 2; 	+ xOffset
+		int yOffset = -13; + yOffset
+		*/
 		
 		if(Mouse.getButton() == 1) {
-			double dx = (Mouse.getX() - Game.width * Game.scale / 2);
-			double dy = (Mouse.getY() - Game.height * Game.scale / 2);
+			double dx = (Mouse.getX()  - Game.width * Game.scale / 2);
+			double dy = (Mouse.getY()  - Game.height * Game.scale / 2);
+			double dir = Math.atan2(dy, dx);
 			
-			dir = Math.atan2(dy, dx);
-			System.out.println(dir);
 			shoot(x, y, dir);
 		}
 		

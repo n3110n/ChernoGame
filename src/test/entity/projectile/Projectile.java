@@ -8,8 +8,10 @@ public abstract class Projectile extends Entity{
 	protected final int xOrigin, yOrigin;
 	protected double angle;
 	protected Sprite sprite;
+	protected double x, y;
 	protected double nx, ny; //will change each tick
 	protected double speed, rateOfFire, range, damage;
+	protected double distance;
 	
 	
 	public Projectile(int xOri, int yOri, double dir) {
@@ -22,6 +24,14 @@ public abstract class Projectile extends Entity{
 	
 	protected void move() {
 		
+	}
+	
+	public double calcDistance() {
+		double dist = 0;
+		
+		dist = Math.sqrt( Math.pow((xOrigin - x), 2) + Math.pow((yOrigin - y), 2));
+		
+		return dist;
 	}
 
 

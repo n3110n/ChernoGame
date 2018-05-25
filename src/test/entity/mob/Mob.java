@@ -15,7 +15,7 @@ public abstract class Mob extends Entity {
 	protected int dir = 2; // direction
 	protected boolean moving = false;
 	
-	protected List<Entity> entities = new ArrayList<Entity>();
+	protected List<Projectile> projectiles = new ArrayList<Projectile>();
 
 	public void move(int xa, int ya) {
 		// 0 north, 1 east, 2 south, 3 west
@@ -40,16 +40,13 @@ public abstract class Mob extends Entity {
 			y += ya;
 		}
 
-
 	}
 	
 	protected void shoot(int x, int y, double dir) {
 
-		//System.out.println(Math.atan(dir));
 		Projectile p = new WizProj(x, y, dir);
-		entities.add(p);
+		projectiles.add(p);
 		level.add(p);
-
 
 		//System.out.println(Math.atan(dir));
 

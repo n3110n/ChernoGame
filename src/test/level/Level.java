@@ -114,7 +114,7 @@ public class Level {
 
 	public void add(Entity e) {
 		// TODO Auto-generated method stub
-		entities.add(e);
-		
+		entities.add(e);		
 	}
+	
 }
