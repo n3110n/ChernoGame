@@ -7,10 +7,10 @@ public class WizProj extends Projectile{
 
 	public WizProj(int xOri, int yOri, double dir) {
 		super(xOri, yOri, dir);
-		range = 5;
+		range = 150 + random.nextInt(100);
 		damage = 20;
 		rateOfFire = 15;
-		speed = 3;
+		speed = 1.5;
 		sprite = Sprite.projTri;
 		
 		//System.out.println("X: " + Math.cos(angle) + " Y: " + Math.sin(angle));

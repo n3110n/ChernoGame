@@ -1,5 +1,7 @@
 package test.entity.projectile;
 
+import java.util.Random;
+
 import test.entity.Entity;
 import test.graphics.Sprite;
 
@@ -12,6 +14,7 @@ public abstract class Projectile extends Entity{
 	protected double nx, ny; //will change each tick
 	protected double speed, rateOfFire, range, damage;
 	protected double distance;
+	protected final Random random = new Random();
 	
 	
 	public Projectile(int xOri, int yOri, double dir) {

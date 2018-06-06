@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import test.entity.Entity;
+import test.entity.projectile.Projectile;
 import test.graphics.Screen;
 import test.level.tile.Tile;
 
@@ -14,6 +15,7 @@ public class Level {
 	protected int[] tiles;
 	
 	private List<Entity> entities = new ArrayList<Entity>();
+	private List<Projectile> projectiles = new ArrayList<Projectile>();
 	
 	public static Level spawn = new SpawnLevel("/level/spawn.png");
 
@@ -42,6 +44,9 @@ public class Level {
 		for(int i = 0; i < entities.size(); i++) {
 			entities.get(i).update();
 		}
+		for(int i = 0; i < projectiles.size(); i++) {
+			projectiles.get(i).update();
+		}
 	}
 
 	public void render(int xScroll, int yScroll, Screen screen) {
@@ -64,6 +69,10 @@ public class Level {
 		}
 		for(int i = 0; i < entities.size(); i++) {
 			entities.get(i).render(screen);
+		}
+		
+		for(int i = 0; i < projectiles.size(); i++) {
+			projectiles.get(i).render(screen);
 		}
 		
 	}
@@ -117,4 +126,11 @@ public class Level {
 		entities.add(e);		
 	}
 	
+	public void addProjectile(Projectile p) {
+		projectiles.add(p);
+	}
+	
+	public List<Projectile> getProjectiles() {
+		return projectiles;
+	}
 }
