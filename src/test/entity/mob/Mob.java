@@ -12,6 +12,8 @@ public abstract class Mob extends Entity {
 	protected int dir = 2; // direction
 	protected boolean moving = false;
 	
+
+	
 	//protected List<Projectile> projectiles = new ArrayList<Projectile>();
 
 	public void move(int xa, int ya) {

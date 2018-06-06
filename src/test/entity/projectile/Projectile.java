@@ -12,7 +12,11 @@ public abstract class Projectile extends Entity{
 	protected Sprite sprite;
 	protected double x, y;
 	protected double nx, ny; //will change each tick
-	protected double speed, rateOfFire, range, damage;
+	public double speed;
+	public static double rateOfFire;
+	public static double timeBetweenShots;
+	public double range;
+	public double damage;
 	protected double distance;
 	protected final Random random = new Random();
 	
@@ -95,6 +99,14 @@ public abstract class Projectile extends Entity{
 
 	public void setDamage(double damage) {
 		this.damage = damage;
+	}
+
+	public double getDistance() {
+		return distance;
+	}
+
+	public void setDistance(double distance) {
+		this.distance = distance;
 	}
 	
 	

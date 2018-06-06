@@ -9,7 +9,8 @@ public class WizProj extends Projectile{
 		super(xOri, yOri, dir);
 		range = 150 + random.nextInt(100);
 		damage = 20;
-		rateOfFire = 15;
+		rateOfFire = 4; //time between shots
+		timeBetweenShots = 60 / rateOfFire; //updates div by shots per sec
 		speed = 1.5;
 		sprite = Sprite.projTri;
 		

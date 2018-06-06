@@ -2,6 +2,7 @@ package test.entity.mob;
 
 import test.Game;
 import test.entity.projectile.Projectile;
+import test.entity.projectile.WizProj;
 import test.graphics.Screen;
 import test.graphics.Sprite;
 import test.input.Keyboard;
@@ -12,6 +13,8 @@ public class Player extends Mob {
 	private Keyboard input;
 	private int animate = 0;
 	private boolean walking = false;
+	
+	private double ticksUntilShot = 0;
 
 	public Player(Keyboard input) {
 		this.input = input;
@@ -21,9 +24,15 @@ public class Player extends Mob {
 		this.x = x;
 		this.y = y;
 		this.input = input;
+		
+		sprite = Sprite.player0; // remove if causes problems
+		
+		ticksUntilShot = WizProj.timeBetweenShots;
 	}
 
 	public void update() {
+		
+		if(WizProj.rateOfFire > 0) ticksUntilShot--;
 		
 		int xa = 0;
 		int ya = 0;
@@ -69,13 +78,14 @@ public class Player extends Mob {
 		int yOffset = -13; + yOffset
 		*/
 		
-		if(Mouse.getButton() == 1) {
+		if(Mouse.getButton() == 1 && ticksUntilShot <= 0) {
 			double dx = (Mouse.getX()  - Game.width * Game.scale / 2);
 			double dy = (Mouse.getY()  - Game.height * Game.scale / 2);
 			double dir = Math.atan2(dy, dx);
 			
 			shoot(x, y, dir);
-		}
+			ticksUntilShot +=  WizProj.timeBetweenShots;
+			}
 		
 	}
 
