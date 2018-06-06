@@ -11,7 +11,7 @@ public class WizProj extends Projectile{
 		damage = 20;
 		rateOfFire = 4; //time between shots
 		timeBetweenShots = 60 / rateOfFire; //updates div by shots per sec
-		speed = 1.5;
+		speed = 2.5;
 		sprite = Sprite.projTri;
 		
 		//System.out.println("X: " + Math.cos(angle) + " Y: " + Math.sin(angle));
@@ -22,7 +22,11 @@ public class WizProj extends Projectile{
 	}
 	
 	public void update() {
+		if(level.tileCollision(x, y, nx, ny, 7, 4, 4, -1)) remove(); //offset and size values for TriForce Proj
+			
+		
 		move();
+		
 	}
 	
 	public void render(Screen screen) {

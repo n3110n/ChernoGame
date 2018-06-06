@@ -3,6 +3,7 @@ package test.level;
 import java.util.ArrayList;
 import java.util.List;
 
+import test.Game;
 import test.entity.Entity;
 import test.entity.projectile.Projectile;
 import test.graphics.Screen;
@@ -38,6 +39,24 @@ public class Level {
 
 	protected void generateLevel() {
 
+	}
+	
+	public boolean tileCollision(double x, double y, double xa, double ya, int entityHeight, int entityWidth, int xOffset, int yOffset) { //x,y is Position and xa, ya are the vectors (direction)
+		boolean solid = false;
+		
+		for(int c = 0; c < 4; c++) {
+			
+			int xcollision_size = entityHeight;
+			int xcollision_offset = xOffset;
+			
+			int ycollision_size = entityWidth;
+			int ycollision_offset = yOffset;
+			
+			double xt = ((x + xa) + c % 2 * xcollision_size - xcollision_offset) / Game.TILE_SIZE;
+			double yt = ((y + ya) + c / 2 * ycollision_size - ycollision_offset) / Game.TILE_SIZE;
+			if(this.getTile((int)xt, (int)yt).getSolid()) solid = true;
+		}
+		return solid;
 	}
 
 	public void update() {
@@ -127,6 +146,7 @@ public class Level {
 	}
 	
 	public void addProjectile(Projectile p) {
+		p.init(this);
 		projectiles.add(p);
 	}
 	

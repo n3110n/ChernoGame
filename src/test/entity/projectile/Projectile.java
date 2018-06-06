@@ -78,7 +78,7 @@ public abstract class Projectile extends Entity{
 
 
 	public void setRateOfFire(double rateOfFire) {
-		this.rateOfFire = rateOfFire;
+		Projectile.rateOfFire = rateOfFire;
 	}
 
 

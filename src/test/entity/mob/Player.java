@@ -32,7 +32,7 @@ public class Player extends Mob {
 
 	public void update() {
 		
-		if(WizProj.rateOfFire > 0) ticksUntilShot--;
+		if(ticksUntilShot > 0) ticksUntilShot--;
 		
 		int xa = 0;
 		int ya = 0;
@@ -84,6 +84,7 @@ public class Player extends Mob {
 			double dir = Math.atan2(dy, dx);
 			
 			shoot(x, y, dir);
+			
 			ticksUntilShot +=  WizProj.timeBetweenShots;
 			}
 		
