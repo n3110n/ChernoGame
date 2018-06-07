@@ -1,8 +1,5 @@
 package test.entity.particle;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import test.entity.Entity;
 import test.graphics.Screen;
 import test.graphics.Sprite;
@@ -13,6 +10,7 @@ public class Particle extends Entity{
 	private Sprite sprite;
 	
 	private int life;
+	//private int time = 0; //chernos way see episode 79
 	
 	protected double xx, xa, yy, ya;
 	
@@ -21,7 +19,7 @@ public class Particle extends Entity{
 		this.xx = x;
 		this.y = y;
 		this.yy = y;
-		this.life = life;
+		this.life = life / 2 + random.nextInt(life);
 		sprite = Sprite.particle_normal;
 		
 		this.xa = random.nextGaussian();
@@ -31,6 +29,8 @@ public class Particle extends Entity{
 	
 	
 	public void update() {
+		life--;
+		if(life <= 0) remove();
 		this.xx += xa;
 		this.yy += ya;
 	}

@@ -5,7 +5,6 @@ import java.util.List;
 
 import test.Game;
 import test.entity.Entity;
-import test.entity.Spawner;
 import test.entity.particle.Particle;
 import test.entity.projectile.Projectile;
 import test.graphics.Screen;
@@ -35,7 +34,7 @@ public class Level {
 		loadLevel(path);
 		generateLevel();
 		
-		this.add(new Spawner(21 * 16, 53 * 16, Spawner.Type.PARTICLE, 50, this));
+		
 	}
 
 	protected void loadLevel(String path) {
@@ -63,6 +62,21 @@ public class Level {
 		}
 		return solid;
 	}
+	
+	private void remove() {
+		for(int i = 0; i < entities.size(); i++) {
+			if(entities.get(i).isRemoved()) entities.remove(i);
+		}
+		
+		for(int i = 0; i < projectiles.size(); i++) {
+			if(projectiles.get(i).isRemoved()) projectiles.remove(i);
+		}
+		
+		for(int i = 0; i < particles.size(); i++) {
+			if(particles.get(i).isRemoved()) particles.remove(i);
+		}
+		
+	}
 
 	public void update() {
 		for(int i = 0; i < entities.size(); i++) {
@@ -76,7 +90,8 @@ public class Level {
 		for(int i = 0; i < particles.size(); i++) {
 			particles.get(i).update();
 		}
-	}
+		remove();
+	}		
 
 	public void render(int xScroll, int yScroll, Screen screen) {
 

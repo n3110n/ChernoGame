@@ -1,9 +1,6 @@
-package test.entity;
+package test.entity.spawner;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import test.entity.particle.Particle;
+import test.entity.Entity;
 import test.level.Level;
 
 public class Spawner extends Entity{
@@ -21,11 +18,7 @@ public class Spawner extends Entity{
 		this.type = type;
 		
 		
-		for(int i = 0; i < amount; i++){
-			if(type == Type.PARTICLE) {
-				level.add(new Particle(x, y, 50));
-			}
-		}
+		
 	}
 	
 }

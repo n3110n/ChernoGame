@@ -1,6 +1,6 @@
 package test.entity.projectile;
 
-import test.entity.particle.Particle;
+import test.entity.spawner.ParticleSpawner;
 import test.graphics.Screen;
 import test.graphics.Sprite;
 
@@ -23,10 +23,10 @@ public class WizProj extends Projectile{
 	}
 	
 	public void update() {
-		if(level.tileCollision(x, y, nx, ny, 7, 4, 4, -1)) {
-			remove(); //offset and size values for TriForce Proj
-			Particle p = new Particle((int)x, (int)y, 50);
-			level.add(p);
+		if(level.tileCollision(x, y, nx, ny, 7, 4, 4, -1)) { //offset and size values for TriForce Proj
+			level.add(new ParticleSpawner((int)x, (int)y, 32, 15, level));
+			remove(); 
+			
 		}
 			
 		
