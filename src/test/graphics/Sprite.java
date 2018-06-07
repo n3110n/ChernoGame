@@ -66,6 +66,9 @@ public class Sprite {
 	public static Sprite playerSide1 = new Sprite(32, 2, 6, SpriteSheet.tiles);
 	public static Sprite playerSide2 = new Sprite(32, 2, 7, SpriteSheet.tiles);
 
+	// Particles
+	public static Sprite particle_normal = new Sprite(3, 0xaaaaaa);
+	
 	// old player graphics deprecated
 	public static Sprite player0 = new Sprite(16, 10, 0, SpriteSheet.tiles);
 	public static Sprite player1 = new Sprite(16, 10, 1, SpriteSheet.tiles);

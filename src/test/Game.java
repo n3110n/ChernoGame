@@ -135,17 +135,11 @@ public class Game extends Canvas implements Runnable {
 		level.render(xScroll, yScroll, screen);
 		player.render(screen);
 		
+		/** could be used as sidebar later
 		int barHUDSize = 60;
 		Sprite sprite = new Sprite(barHUDSize, height, 0x0000ff);
 		screen.renderSprite(width - barHUDSize, 0, sprite, false);
-		
-		Sprite particle = new Sprite(2, 2, 0xff0011);
-		Random random = new Random();
-		for(int i = 0; i < 25; i++) {
-			int x = random.nextInt(15);
-			int y = random.nextInt(15);
-			screen.renderSprite(100 + x, 100 + y, particle, false); 
-		}
+		*/
 		
 
 		for (int i = 0; i < pixels.length; i++) {
