@@ -26,6 +26,51 @@ public class Screen {
 			tiles[i] = random.nextInt(0xffffff);
 		}
 	}
+	
+	public void clear() {
+		for (int i = 0; i < pixels.length; i++) {
+			pixels[i] = 0x000000; // or = 0
+		}
+	}
+	
+	public void renderSprite(int xp, int yp, Sprite sprite) {
+		xp -= xOffset;
+		yp -= yOffset;
+		for (int y = 0; y < sprite.getSIZE(); y++) {
+			int ya = y + yp;
+			for (int x = 0; x < sprite.getSIZE(); x++) {
+				int xa = x + xp;
+
+				if (xa < 0 - sprite.getSIZE() || xa >= width || ya < 0 || ya >= height)
+					break;
+				if (xa < 0)
+					xa = 0;
+				int col = sprite.pixels[x + y * sprite.getSIZE()];
+				if(col != 0xffff00ff)
+				pixels[xa + ya * width] = col;
+			}
+		}
+	}
+	
+	public void renderSprite(int xp, int yp, Sprite sprite, boolean fixed) {
+		if(fixed){
+			xp -= xOffset;
+			yp -= yOffset;
+		}
+		
+		for (int y = 0; y < sprite.getHeight(); y++) {
+			int ya = y + yp;
+			for (int x = 0; x < sprite.getWidth(); x++) {
+				int xa = x + xp;
+
+				if (xa < 0 || xa >= width || ya < 0 || ya >= height) continue;
+				
+				int col = sprite.pixels[x + y * sprite.getWidth()];
+				if(col != 0xffff00ff)
+				pixels[xa + ya * width] = col;
+			}
+		}
+	}
 
 	// not needed anymore
 	/**
@@ -55,24 +100,7 @@ public class Screen {
 		}
 	}
 	
-	public void renderSprite(int xp, int yp, Sprite sprite) {
-		xp -= xOffset;
-		yp -= yOffset;
-		for (int y = 0; y < sprite.getSIZE(); y++) {
-			int ya = y + yp;
-			for (int x = 0; x < sprite.getSIZE(); x++) {
-				int xa = x + xp;
-
-				if (xa < 0 - sprite.getSIZE() || xa >= width || ya < 0 || ya >= height)
-					break;
-				if (xa < 0)
-					xa = 0;
-				int col = sprite.pixels[x + y * sprite.getSIZE()];
-				if(col != 0xffff00ff)
-				pixels[xa + ya * width] = col;
-			}
-		}
-	}
+	
 
 	public void renderPlayer(int xp, int yp, Sprite sprite, int flip) {
 		xp -= xOffset;
@@ -112,10 +140,6 @@ public class Screen {
 		this.yOffset = yOffset;
 	}
 
-	public void clear() {
-		for (int i = 0; i < pixels.length; i++) {
-			pixels[i] = 0x000000; // or = 0
-		}
-	}
+	
 
 }

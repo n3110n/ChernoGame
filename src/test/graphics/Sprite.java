@@ -3,6 +3,7 @@ package test.graphics;
 public class Sprite {
 
 	private final int SIZE;
+	private int width, height;
 	private int x, y;
 
 	public int[] pixels;
@@ -73,6 +74,8 @@ public class Sprite {
 
 	public Sprite(int size, int x, int y, SpriteSheet sheet) {
 		SIZE = size;
+		this.width = size;
+		this.height = size;
 		this.x = x * size;
 		this.y = y * size;
 		this.sheet = sheet;
@@ -80,9 +83,19 @@ public class Sprite {
 
 		load();
 	}
+	
+	public Sprite(int width, int height, int color) {
+		SIZE = -1;
+		this.width = width;
+		this.height = height;
+		pixels = new int[width * height];
+		setColor(color);
+	}
 
 	public Sprite(int size, int color) {
 		SIZE = size;
+		this.width = size;
+		this.height = size;
 		pixels = new int[SIZE * SIZE];
 		setColor(color);
 	}
@@ -103,6 +116,22 @@ public class Sprite {
 
 	public int getSIZE() {
 		return SIZE;
+	}
+
+	public int getWidth() {
+		return width;
+	}
+
+	public void setWidth(int width) {
+		this.width = width;
+	}
+
+	public int getHeight() {
+		return height;
+	}
+
+	public void setHeight(int height) {
+		this.height = height;
 	}
 
 }
