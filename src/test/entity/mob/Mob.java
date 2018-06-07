@@ -2,6 +2,7 @@ package test.entity.mob;
 
 import test.Game;
 import test.entity.Entity;
+import test.entity.particle.Particle;
 import test.entity.projectile.Projectile;
 import test.entity.projectile.WizProj;
 import test.graphics.Sprite;
@@ -37,6 +38,9 @@ public abstract class Mob extends Entity {
 		if (!collision(xa, ya))  {
 			x += xa;
 			y += ya;
+		} else {
+			Particle p = new Particle(x, y, 50, 25);
+			level.add(p);
 		}
 
 	}
