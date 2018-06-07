@@ -47,7 +47,7 @@ public abstract class Mob extends Entity {
 	protected void shoot(int x, int y, double dir) {
 
 		Projectile p = new WizProj(x, y, dir);
-		level.addProjectile(p);
+		level.add(p);
 
 		//System.out.println(Math.atan(dir));
 
