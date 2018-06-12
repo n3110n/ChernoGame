@@ -45,23 +45,23 @@ public class Level {
 
 	}
 	
-	public boolean tileCollision(double x, double y, double xa, double ya, int entityHeight, int entityWidth, int xOffset, int yOffset) { //x,y is Position and xa, ya are the vectors (direction)
+	public boolean tileCollision(int x, int y, int width, int height, int xOffset, int yOffset) {  // x Offset from the right, y Offset from top
 		boolean solid = false;
 		
-		for(int c = 0; c < 4; c++) {
-			
-			int xcollision_size = entityHeight;
-			int xcollision_offset = xOffset;
-			
-			int ycollision_size = entityWidth;
-			int ycollision_offset = yOffset;
-			
-			double xt = ((x + xa) + c % 2 * xcollision_size - xcollision_offset) / Game.TILE_SIZE;
-			double yt = ((y + ya) + c / 2 * ycollision_size - ycollision_offset) / Game.TILE_SIZE;
-			if(this.getTile((int)xt, (int)yt).getSolid()) solid = true;
+		for(int c = 0; c < 4; c++) {			
+			int xt = (x - c % 2 * width + xOffset + 1) / Game.TILE_SIZE;
+			int yt = (y + c / 2 * height + yOffset - 1) / Game.TILE_SIZE;
+			if(this.getTile(xt, yt).getSolid()) {
+				solid = true;
+			}
 		}
 		return solid;
 	}
+	
+	public boolean tileCollision(int x, int y, int size, int xOffset, int yOffset) {
+		return tileCollision(x, y, size, size, xOffset, yOffset);
+	}
+	
 	
 	private void remove() {
 		for(int i = 0; i < entities.size(); i++) {

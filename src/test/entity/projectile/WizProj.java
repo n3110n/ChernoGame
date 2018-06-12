@@ -12,7 +12,7 @@ public class WizProj extends Projectile{
 		damage = 20;
 		rateOfFire = 4; //time between shots
 		timeBetweenShots = 60 / rateOfFire; //updates div by shots per sec
-		speed = 2.5;
+		speed = .3;
 		sprite = Sprite.projTri;
 		
 		//System.out.println("X: " + Math.cos(angle) + " Y: " + Math.sin(angle));
@@ -23,8 +23,10 @@ public class WizProj extends Projectile{
 	}
 	
 	public void update() {
-		if(level.tileCollision(x, y, nx, ny, 7, 4, 4, -1)) { //offset and size values for TriForce Proj
-			level.add(new ParticleSpawner((int)x, (int)y, 32, 15, level));
+		if(level.tileCollision((int)(x + nx), (int)(y + ny), 11, 7, 4, 2)) { //for tri 
+		//need to fix tile collision to work for non square forms!!!
+	//	if(level.tileCollision((int)(x + nx), (int)(y + ny), 6, 6, 2, 3)) { //for ball
+			level.add(new ParticleSpawner((int)x, (int)y, 32, 15, level)); //move to level pls
 			remove(); 
 			
 		}
