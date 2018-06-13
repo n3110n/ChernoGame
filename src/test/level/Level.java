@@ -8,6 +8,7 @@ import test.entity.Entity;
 import test.entity.particle.Particle;
 import test.entity.projectile.Projectile;
 import test.graphics.Screen;
+import test.graphics.Sprite;
 import test.level.tile.Tile;
 
 public class Level {
@@ -53,6 +54,18 @@ public class Level {
 			int yt = (y + c / 2 * height + yOffset - 1) / Game.TILE_SIZE;
 			if(this.getTile(xt, yt).getSolid()) {
 				solid = true;
+			}
+		}
+		return solid;
+	}
+	
+	public boolean tileCollision(int x, int y, Sprite sprite) {  // x Offset from the right, y Offset from top
+		boolean solid = false;
+		
+		for(int yi = 0; yi < sprite.getHeight(); yi++) {
+			for(int xi = 0; xi < sprite.getWidth(); xi++) {
+				if(sprite.pixels[yi * sprite.getWidth() + xi] != 0xffff00ff && this.getTile((x + xi + 1) / 16, (y + yi - 1) / 16).getSolid())  return true;
+			
 			}
 		}
 		return solid;
