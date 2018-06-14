@@ -23,20 +23,21 @@ public class WizProj extends Projectile{
 	}
 	
 	public void update() {
-		move();
-		if(level.tileCollision((int)(x ), (int)(y), sprite)) { //for tri 
+		if(level.tileCollision((int)(x + nx), (int)(y + ny), 11, 7, 4, 2)) { //for tri 
 		//need to fix tile collision to work for non square forms!!!
 	//	if(level.tileCollision((int)(x + nx), (int)(y + ny), 6, 6, 2, 3)) { //for ball
 			level.add(new ParticleSpawner((int)x, (int)y, 32, 15, level)); //move to level pls
 			remove(); 
 			
 		}
+			
+		
 		move();
 		
 	}
 	
 	public void render(Screen screen) {
-		screen.renderSprite((int)x, (int)y, sprite);
+		screen.renderSprite((int)x - 5, (int)y, sprite);
 	}
 	
 	protected void move() {
