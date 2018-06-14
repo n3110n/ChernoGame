@@ -71,7 +71,10 @@ public class Level {
 		return solid;
 	}
 	
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of 2e9a9a8... finished fucking Sprite perfect collision ffs
 	public boolean tileCollision(int x, int y, int size, int xOffset, int yOffset) {
 		return tileCollision(x, y, size, size, xOffset, yOffset);
 	}
