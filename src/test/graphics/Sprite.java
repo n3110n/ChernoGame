@@ -13,7 +13,7 @@ public class Sprite {
 
 	//proj
 	public static Sprite projTri = new Sprite(16, 0, 0, SpriteSheet.proj);
-	public static Sprite projBall = new Sprite(16, 1, 1, SpriteSheet.proj);
+	public static Sprite projBall = new Sprite(16, 1, 0, SpriteSheet.proj);
 	
 	// voidsprite
 	public static Sprite voidSprite = new Sprite(16, 0x1b87e0);
