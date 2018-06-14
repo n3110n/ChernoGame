@@ -7,7 +7,7 @@ import test.graphics.Sprite;
 import test.level.Level;
 
 public abstract class Entity {
-	
+	 
 	public int x, y;
 	private Sprite sprite;
 	private boolean removed = false;
