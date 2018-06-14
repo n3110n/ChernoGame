@@ -60,26 +60,23 @@ public class Level {
 			double xt = ((x + xa) + c % 2 * xcollision_size - xcollision_offset) / Game.TILE_SIZE;
 			double yt = ((y + ya) + c / 2 * ycollision_size - ycollision_offset) / Game.TILE_SIZE;
 			if(this.getTile((int)xt, (int)yt).getSolid()) solid = true;
-=======
+
 		for(int c = 0; c < 4; c++) {			
 			int xt = (x - c % 2 * width + xOffset + 1) / Game.TILE_SIZE;
 			int yt = (y + c / 2 * height + yOffset - 1) / Game.TILE_SIZE;
 			if(this.getTile(xt, yt).getSolid()) {
 				solid = true;
 			}
->>>>>>> parent of 2e9a9a8... finished fucking Sprite perfect collision ffs
 		}
 		return solid;
 	}
 	
-<<<<<<< HEAD
-=======
+
 	public boolean tileCollision(int x, int y, int size, int xOffset, int yOffset) {
 		return tileCollision(x, y, size, size, xOffset, yOffset);
 	}
 	
 	
->>>>>>> parent of 2e9a9a8... finished fucking Sprite perfect collision ffs
 	private void remove() {
 		for(int i = 0; i < entities.size(); i++) {
 			if(entities.get(i).isRemoved()) entities.remove(i);
